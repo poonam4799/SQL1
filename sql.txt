@@ -1,0 +1,115 @@
+1.Politician 
+create database Preeti
+
+
+create Politician(P_no int primary key,pname varchar(20),
+P_desc varchar(20),constituency varchar(20),
+P_code int references Party(Party_code))
+
+
+create table Party(Party_code int primary key, Party_name varchar(20))
+
+insert into Party values(20,'Congress');
+insert into Party values(10,'BJP');
+
+insert into Party values(22,'Shiv sena');
+
+select * from Party;
+
+
+create table Politician(P_no int primary key,pname varchar(20),
+P_symbol varchar(20),constituency varchar(20),
+P_code int references Party(Party_code))
+
+
+drop table 
+
+
+
+insert into politician values(3,'Mayawati','Umbrella','Jammu Kashmir',10)
+
+
+
+2.book
+
+create  table Book(book_name varchar(20) primary key ,
+publisher varchar(20),
+Price float)
+
+insert into Book values('Angel','Aramn',87.77)
+insert into Book values('Horror','sultan',33.98)
+
+
+create table member(mno int primary key ,mname varchar(20),
+address varchar(20),city varchar(20))
+
+insert into member(23,'Ramnand','568 ,Pune','Pune')
+
+
+
+create table book_member1(book_name varchar(20), m_no int ,constraint pdfk1 foreign key(Book_name)
+references book(book_name),
+constraint pgj foreign key(m_no) references member(mno));
+constraint pfkg foreign key(m_no) references member(mno))
+
+
+insert into member values(12,'punam',22);
+drop table Member
+
+select *from member;
+
+
+3.Game
+
+create table Players(p_no int Primary key ,
+pname varchar(20),club_name varchar(20));
+
+create table Game(g_no int primary key,g_name varchar(20),no_of_players int ,
+name_of_coach varchar(20),
+captian_no int);
+
+
+
+insert into game values(67,'amit',12,'suresh',45);
+
+
+create table player_game23(p_no int ,g_no int, 
+ foreign key(p_no) references Players(p_no),
+
+foreign key(g_no) references game(g_no) );
+select * from Players;
+
+insert into player_game23 values( 3,3);
+
+select * from Game;
+
+
+4.Employee
+
+create table Empl(emp_no int primary key,ename varchar(20),
+address varchar(20),city varchar(20),zip int ,email varchar(20),
+
+hiredate date,sal float,job char,mgr int,deptno int, 
+foreign key(deptno) references dept(deptno));
+
+
+
+create table Dept(deptno int primary key ,dname varchar(20),
+location varchar(20));
+
+
+insert into dept values(90,'suresh','pune');
+
+
+create table salgrade(grade char primary key,minsal int ,maxsal int);
+
+
+insert into salgrade values('B',35,77);
+
+
+create table dependents(dname varchar(20),relationship varchar(20), empno int,
+foreign key(empno) references Emp1(emp_no));
+
+
+insert into empl values(2,'Preeti','flat-401','Pune',
+56,'abc@gmail.com',2/4/8787,43434,'O',8,87)
